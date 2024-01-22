@@ -5,14 +5,9 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
-    },
-  },
-  plugins: [],
+  darkMode: "class", // or 'media' or 'class' pour que cela marche dans le dossier utis y'a un fichier Provider.jsx j'ai utiliser l'attribut="class"
+  theme: { },
+  plugins: [
+    require('@tailwindcss/typography')
+  ],
 }
