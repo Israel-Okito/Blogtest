@@ -28,7 +28,7 @@ export const revalidate = 60;
 
 const page = async ({ params }) => {
   const posts = await getPostsByTag(params.slug);
-  console.log(posts, "posts by tag");
+  // console.log(posts, "posts by tag");
   return (
     <div>
       <Header title={`#${params?.slug}`} tags />

@@ -21,7 +21,7 @@ export const revalidate = 30;
 
 const page = async () => {
   const tags= await getAllTags();
-  console.log(tags, "tags");
+  // console.log(tags, "tags");
   return (
     <div>
       <Header title="Tags" />

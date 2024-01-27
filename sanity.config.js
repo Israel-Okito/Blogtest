@@ -9,9 +9,13 @@ import {structureTool} from 'sanity/structure'
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import {apiVersion, dataset, projectId} from './sanity/env'
 import {schema} from './sanity/schema'
+import CmsLogo from '@/components/CmsLogo'
 
 export default defineConfig({
   basePath: '/studio',
+  name:"Israel_Blog",
+  title:"Israel Blog",
+  icon:CmsLogo,
   projectId,
   dataset,
   // Add and edit the content schema in the './sanity/schema' folder
@@ -22,4 +26,5 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
   ],
+
 })

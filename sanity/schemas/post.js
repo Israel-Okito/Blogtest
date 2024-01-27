@@ -11,12 +11,19 @@ export const post = {
       type: "string",
       validation: (Rule) => Rule.required().error("Required"),
     },
+
     {
       name: "slug",
       title: "Slug",
       type: "slug",
       options: { source: "title" },
       validation: (Rule) => Rule.required().error("Required"),
+    },
+    {
+      name: "authors",
+      title: "Authors",
+      type: "array",
+      of: [{ type: "reference", to: [{ type: "author" }] }],
     },
     {
       name: "publishedAt",
