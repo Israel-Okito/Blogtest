@@ -24,6 +24,9 @@ export const author = defineType({
         title: "Image",
         type: "image",
         fields: [{ type: "text", name: "alt", title: "Alt" }],
+        options: {
+          hotspot: true,
+        },
         
     },
     {

@@ -13,6 +13,36 @@ import Form from "@/components/Form";
 const dateFont = VT323({ weight: "400", subsets: ["latin"] });
 
 
+
+// export async function generateMetadata({slug}) {
+//   // read route params
+//   const query = `
+//   *[_type == "post" && slug.current == "${slug}"][0] {
+//     title,
+//     slug,
+//     publishedAt,
+//     excerpt,
+//     _id,
+//   }
+//   `;
+
+//   const post = await client.fetch(query);
+
+//   // return post
+ 
+//   // optionally access and extend (rather than replace) parent metadata
+//   // const previousImages = (await parent).openGraph?.images || []
+ 
+//   return {
+//     title:post?.title,
+//     // openGraph: {
+//     //   images: ['/some-specific-page-image.jpg', ...previousImages],
+//     // },
+//   }
+// }
+ 
+
+
 export async function generateStaticParams() {
   const query = `*[_type == "post"]
    {
@@ -60,6 +90,26 @@ async function getPost(slug) {
 }
 
 export const revalidate = 30;
+
+
+export async function generateMetadata({params}){
+  const post = await getPost(params?.slug);
+  console.log({post})
+  return{
+     title:post.title,
+     description: post.excerpt,
+
+    //  openGraph:{
+    //   images:[
+    //     {
+    //       url:post.imageUrl
+    //     }
+    //   ]
+    //  }
+  }
+}
+
+
 
 const page = async ({ params }) => {
 
